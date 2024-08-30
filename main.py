@@ -2,10 +2,11 @@ def main():
     book_path = 'books/frankenstein.txt'
     text = get_book_text(book_path)
     num_words = get_num_words(text)
-    dict_count = count_chars(text)
-    lista_dict = list_of_dicts(dict_count)
-    
-    print(lista_dict)
+    chars_dict = get_chars_dict(text)
+    list_dicts = get_list_dicts(chars_dict)
+#    sorted_list = get_sort_list(list_dicts)
+
+    print(list_dicts)
 
 
 def get_num_words(text):
@@ -13,7 +14,7 @@ def get_num_words(text):
     return len(words)
 
 
-def count_chars(text):
+def get_chars_dict(text):
     low_caps = text.lower()
     char_counts = {}
     for char in low_caps:
@@ -24,16 +25,28 @@ def count_chars(text):
     return char_counts
 
 
-def list_of_dicts(dict_count):
+def get_list_dicts(chars_dict):
     lista = []
 
-    for item in dict_count:
+    for item in chars_dict:
         single_dict = {}
-        count = dict_count[item]
+        count = chars_dict[item]
         single_dict[item] = count
         lista.append(single_dict)    
     return lista
 
+
+def sort_on(sorted_list):
+    return sorted_list['num']
+
+'''
+def get_sort_list(list_dicts):
+    sorted_list = []
+    for char in list_dicts:
+        sorted_list.append({'char': char, 'num': list_dicts[char]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
+'''
 
 def get_book_text(path):
     with open(path) as f:
