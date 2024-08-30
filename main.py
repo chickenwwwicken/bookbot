@@ -4,9 +4,9 @@ def main():
     num_words = get_num_words(text)
     chars_dict = get_chars_dict(text)
     list_dicts = get_list_dicts(chars_dict)
-#    sorted_list = get_sort_list(list_dicts)
+    sorted_list = get_sort_list(chars_dict)
 
-    print(list_dicts)
+    print(sorted_list) 
 
 
 def get_num_words(text):
@@ -36,18 +36,18 @@ def get_list_dicts(chars_dict):
     return lista
 
 
-def sort_on(sorted_list):
+def get_count(sorted_list):
     return sorted_list['num']
 
-'''
-def get_sort_list(list_dicts):
+
+def get_sort_list(chars_dict):
     sorted_list = []
-    for char in list_dicts:
-        sorted_list.append({'char': char, 'num': list_dicts[char]})
-    sorted_list.sort(reverse=True, key=sort_on)
+    for char in chars_dict:
+        sorted_list.append({'char': char, 'num': chars_dict[char]})
+    sorted_list.sort(reverse=True, key=get_count)
     return sorted_list
 
-''
+
 
 def get_book_text(path):
     with open(path) as f:
