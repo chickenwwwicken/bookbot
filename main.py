@@ -17,6 +17,10 @@ def main():
     # sorted list of all character:count's ordered from most appearances to least
     sorted_list = get_sort_list(chars_dict)
 
+    
+    # here you can print tests
+    # print(sorted_list)
+
 
     # Printed book report
     print(f'--- Begin report of {book_path} ---')
@@ -69,9 +73,13 @@ def get_list_dicts(chars_dict):
     lista = []
 
     for item in chars_dict:
+        # setting a new dictionary for each character
         single_dict = {}
+        # naming the values of dictionary as 'count' variable
         count = chars_dict[item]
+        # adding new key/value pair to single_dict
         single_dict[item] = count
+        # adding each single_dict to main list
         lista.append(single_dict)    
     return lista
 
@@ -84,8 +92,10 @@ def get_count(sorted_list):
 # getting a list of dictionaries but sorted from most appearances to least 
 def get_sort_list(chars_dict):
     sorted_list = []
+    # here is where you set the syntax for your new dicitonaries
     for char in chars_dict:
         sorted_list.append({'char': char, 'num': chars_dict[char]})
+    # here is where you connect with get_count function
     sorted_list.sort(reverse=True, key=get_count)
     return sorted_list
 
