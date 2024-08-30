@@ -46,7 +46,8 @@ def get_sort_list(list_dicts):
         sorted_list.append({'char': char, 'num': list_dicts[char]})
     sorted_list.sort(reverse=True, key=sort_on)
     return sorted_list
-'''
+
+''
 
 def get_book_text(path):
     with open(path) as f:
